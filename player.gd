@@ -158,3 +158,5 @@ func update_animation(direction: float) -> void:
 		anim.play("idle")
 	else:
 		anim.play("run")
+
+#test
