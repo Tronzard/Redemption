@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-@export var gravity: float = 280.0
-@export var coin_layer_path: NodePath
+signal  check_pickup(player_global_position: Vector2)
 
-@onready var coin_layer: TileMapLayer = get_node(coin_layer_path)
+@export var gravity: float = 280.0
 
 @onready var movement: Node = $Movement
 @onready var animation: Node = $Animation
@@ -28,17 +27,4 @@ func _physics_process(delta: float) -> void:
 
 
 func check_coin_pickup() -> void:
-	if coin_layer == null:
-		return
-
-	var local_pos: Vector2 = coin_layer.to_local(global_position)
-	var tile_pos: Vector2i = coin_layer.local_to_map(local_pos)
-	var source_id: int = coin_layer.get_cell_source_id(tile_pos)
-
-	if source_id != -1:
-		coin_layer.erase_cell(tile_pos)
-		increase_points()
-
-
-func increase_points() -> void:
-	pass
+	emit_signal("check_pickup", global_position)
