@@ -7,6 +7,7 @@ signal  check_pickup(player_global_position: Vector2)
 @onready var movement: Node = $Movement
 @onready var animation: Node = $Animation
 @onready var combat: Node = $Combat
+@onready var camera_2d: Camera2D = $Camera2D
 
 
 func _physics_process(delta: float) -> void:
@@ -28,3 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func check_coin_pickup() -> void:
 	emit_signal("check_pickup", global_position)
+
+
+func get_camera() -> Camera2D:
+	return camera_2d
