@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://6afpq43slet6"]
+
+[ext_resource type="PackedScene" uid="uid://dmdjjol7ibpmj" path="res://scenes/enemy/base_enemy.tscn" id="1_nlxdc"]
+[ext_resource type="Script" uid="uid://c3l4biwv3bi55" path="res://scenes/enemy/chase_walker_enemy.gd" id="2_8227w"]
+[ext_resource type="Texture2D" uid="uid://dlj6r22skbpdj" path="res://assets/Sunny Land Collection Files/Assets/Characters/Enemies and NPC/Bettle/spritesheet.png" id="3_6xaa3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cehyw"]
+atlas = ExtResource("3_6xaa3")
+region = Rect2(0, 0, 36, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vy33"]
+atlas = ExtResource("3_6xaa3")
+region = Rect2(36, 0, 36, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1yv7"]
+atlas = ExtResource("3_6xaa3")
+region = Rect2(72, 0, 36, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj2ly"]
+atlas = ExtResource("3_6xaa3")
+region = Rect2(108, 0, 36, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8227w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cehyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vy33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1yv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj2ly")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ChaseWalkerEnemy" instance=ExtResource("1_nlxdc")]
+script = ExtResource("2_8227w")
+speed = 50
+chase_speed = 150
+acceleration = 200
+
+[node name="AnimatedSprite2D" parent="Path2D/PathFollow2D" index="0"]
+position = Vector2(85, -15)
+sprite_frames = SubResource("SpriteFrames_8227w")
+frame_progress = 0.12059938
+
+[node name="Area2D" parent="Path2D/PathFollow2D/AnimatedSprite2D" index="0"]
+position = Vector2(0, 0)
+
+[node name="CollisionShape2D" parent="Path2D/PathFollow2D/AnimatedSprite2D/Area2D" index="0"]
+position = Vector2(0, 7)
+rotation = 1.5612911
+
+[node name="RayCastHorizontal" type="RayCast2D" parent="Path2D/PathFollow2D/AnimatedSprite2D" index="1"]
+position = Vector2(1, 7)
+target_position = Vector2(-54, 0)
+
+[node name="RayCastDown" type="RayCast2D" parent="Path2D/PathFollow2D/AnimatedSprite2D" index="2"]
+position = Vector2(-21, 7)
+target_position = Vector2(0, 20)
+
+[node name="Timer" type="Timer" parent="." index="1"]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

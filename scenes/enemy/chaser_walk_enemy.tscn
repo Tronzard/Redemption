@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://clw0xfhdymw3c"]
+
+[ext_resource type="PackedScene" uid="uid://dmdjjol7ibpmj" path="res://scenes/enemy/base_enemy.tscn" id="1_m058l"]
+[ext_resource type="Script" uid="uid://ca1tj4x3e18lm" path="res://scenes/enemy/chaser_walk_enemy.gd" id="2_3qj23"]
+[ext_resource type="Texture2D" uid="uid://bpvxqb7jb8erk" path="res://assets/Characters/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Run.png" id="3_4mvpn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrlpt"]
+atlas = ExtResource("3_4mvpn")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4snmh"]
+atlas = ExtResource("3_4mvpn")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v176n"]
+atlas = ExtResource("3_4mvpn")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh8k0"]
+atlas = ExtResource("3_4mvpn")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdbmi"]
+atlas = ExtResource("3_4mvpn")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5nua"]
+atlas = ExtResource("3_4mvpn")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rgds"]
+atlas = ExtResource("3_4mvpn")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stjyf"]
+atlas = ExtResource("3_4mvpn")
+region = Rect2(560, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wdbmi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrlpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4snmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v176n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gh8k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdbmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5nua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rgds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stjyf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="chaser_walk_enemy" instance=ExtResource("1_m058l")]
+script = ExtResource("2_3qj23")
+speed = 0.5
+
+[node name="PathFollow2D" parent="Path2D" index="0"]
+position = Vector2(-123, 0)
+
+[node name="AnimatedSprite2D" parent="Path2D/PathFollow2D" index="0"]
+position = Vector2(125.00001, -14)
+sprite_frames = SubResource("SpriteFrames_wdbmi")
+
+[node name="Area2D" parent="Path2D/PathFollow2D/AnimatedSprite2D" index="0"]
+position = Vector2(0, 0)
+
+[node name="CollisionShape2D" parent="Path2D/PathFollow2D/AnimatedSprite2D/Area2D" index="0"]
+position = Vector2(-1.0000076, 15)
+
+[node name="RayCast2D" type="RayCast2D" parent="Path2D/PathFollow2D/AnimatedSprite2D" index="1"]
+target_position = Vector2(-40, 6.9938224e-06)

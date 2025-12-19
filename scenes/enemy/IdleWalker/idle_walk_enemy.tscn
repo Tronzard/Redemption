@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://udtjla7sbdws"]
+
+[ext_resource type="PackedScene" uid="uid://dmdjjol7ibpmj" path="res://scenes/enemy/base_enemy.tscn" id="1_musuk"]
+[ext_resource type="Script" uid="uid://cq7twjlpbpydo" path="res://scenes/enemy/IdleWalker/idle_walk_enemy.gd" id="2_0qdmu"]
+
+[node name="IdleWalkEnemy" instance=ExtResource("1_musuk")]
+script = ExtResource("2_0qdmu")
+speed = 0.5
+
+[node name="PathFollow2D" parent="Path2D" index="0"]
+position = Vector2(0, 0)
+
+[node name="CollisionShape2D" parent="Path2D/PathFollow2D/AnimatedSprite2D/Area2D" index="0"]
+position = Vector2(-85, 14)

@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal  check_pickup(player_global_position: Vector2)
 
 @export var gravity: float = 280.0
+@export var health: int = 100
 
 @onready var movement: Node = $Movement
 @onready var animation: Node = $Animation
@@ -33,3 +34,14 @@ func check_coin_pickup() -> void:
 
 func get_camera() -> Camera2D:
 	return camera_2d
+
+
+func _on_idle_walk_enemy_give_contact_damage(p_damage: Variant) -> void:
+	push_error("enter")
+	health -= p_damage
+	
+	#add damage hit triggers, sound / animation
+	
+	if health <= 0:
+		#die
+		pass

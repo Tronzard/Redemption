@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cajeakagl5vwp"]
+[gd_scene load_steps=54 format=4 uid="uid://cajeakagl5vwp"]
 
 [ext_resource type="Texture2D" uid="uid://g7gpl8r7y3cg" path="res://assets/Free Pixel Art Forest/PNG/Background layers/Layer_0009_2.png" id="1_0ph2d"]
 [ext_resource type="Script" uid="uid://cq6124k8giqgr" path="res://scenes/levels/level2/level_2.gd" id="1_nyfdo"]
@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://5a4cxnup2v2m" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="15_dvwl2"]
 [ext_resource type="PackedScene" uid="uid://bqxkhnk5n1sgy" path="res://scenes/player_controller/player.tscn" id="16_gbd0r"]
 [ext_resource type="Texture2D" uid="uid://dy4tuys6u1pot" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="16_ru4sy"]
+[ext_resource type="Script" uid="uid://cq7twjlpbpydo" path="res://scenes/enemy/IdleWalker/idle_walk_enemy.gd" id="18_rnhg5"]
+[ext_resource type="SpriteFrames" uid="uid://dogrlf1sh01lx" path="res://scenes/enemy/IdleWalker/snail.tres" id="20_dvwl2"]
+[ext_resource type="Script" uid="uid://ca1tj4x3e18lm" path="res://scenes/enemy/chaser_walk_enemy.gd" id="21_j7fur"]
+[ext_resource type="Texture2D" uid="uid://bpvxqb7jb8erk" path="res://assets/Characters/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Run.png" id="22_rnhg5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ru4sy"]
 distance = -184.0
@@ -3622,6 +3626,16 @@ sources/2 = SubResource("TileSetAtlasSource_hjtdx")
 sources/3 = SubResource("TileSetAtlasSource_nyfdo")
 sources/4 = SubResource("TileSetAtlasSource_lwso1")
 
+[sub_resource type="Curve2D" id="Curve2D_jf5t1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -94, 11, 0, 0, 0, 0, 16, 11, 0, 0, 0, 0, -94, 11)
+}
+point_count = 3
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jf5t1"]
+radius = 13.57513
+height = 27.15026
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ru4sy"]
 texture = ExtResource("11_6u3ju")
 0:0/0 = 0
@@ -4750,6 +4764,76 @@ sources/0 = SubResource("TileSetAtlasSource_ru4sy")
 sources/1 = SubResource("TileSetAtlasSource_dvwl2")
 sources/2 = SubResource("TileSetAtlasSource_gbd0r")
 
+[sub_resource type="Curve2D" id="Curve2D_rnhg5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -121.80469, 15.037594, 0, 0, 0, 0, 70.67651, 15.037594, 0, 0, 0, 0, -121.80469, 15.037594)
+}
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrlpt"]
+atlas = ExtResource("22_rnhg5")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4snmh"]
+atlas = ExtResource("22_rnhg5")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v176n"]
+atlas = ExtResource("22_rnhg5")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gh8k0"]
+atlas = ExtResource("22_rnhg5")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdbmi"]
+atlas = ExtResource("22_rnhg5")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5nua"]
+atlas = ExtResource("22_rnhg5")
+region = Rect2(400, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rgds"]
+atlas = ExtResource("22_rnhg5")
+region = Rect2(480, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stjyf"]
+atlas = ExtResource("22_rnhg5")
+region = Rect2(560, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wdbmi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrlpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4snmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v176n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gh8k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdbmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5nua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rgds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stjyf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_nyfdo")
 coin_layer_path = NodePath("CoinLayer")
@@ -4869,8 +4953,34 @@ position = Vector2(2468.325, 64.375)
 tile_map_data = PackedByteArray("AAAAAPz/BAAOAAsAAAAAAP3/BAAOAAsAAAAAAP7/BAAOAAsAAAAAAP//BAAOAAsAAAAAAAAABAAOAAsAAAAAAAEABAAOAAsAAAAAAAIABAAOAAsAAAAAAAMABAAOAAsAAAA=")
 tile_set = SubResource("TileSet_clahu")
 
+[node name="IdleWalkEnemy" type="CharacterBody2D" parent="."]
+position = Vector2(299, 202)
+script = ExtResource("18_rnhg5")
+
+[node name="Path2D" type="Path2D" parent="IdleWalkEnemy"]
+position = Vector2(46.000004, 0)
+curve = SubResource("Curve2D_jf5t1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="IdleWalkEnemy/Path2D"]
+position = Vector2(-94, 11)
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="IdleWalkEnemy/Path2D/PathFollow2D"]
+position = Vector2(1.9073486e-06, -1.9999957)
+scale = Vector2(0.6875, 0.6875)
+sprite_frames = ExtResource("20_dvwl2")
+animation = &"walk"
+
+[node name="Area2D" type="Area2D" parent="IdleWalkEnemy/Path2D/PathFollow2D/AnimatedSprite2D"]
+position = Vector2(7.6293945e-06, 4.363636)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IdleWalkEnemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D"]
+position = Vector2(7.6293945e-06, -1.9073486e-06)
+rotation = 1.5991845
+shape = SubResource("CapsuleShape2D_jf5t1")
+
 [node name="Player" parent="." instance=ExtResource("16_gbd0r")]
-position = Vector2(41.00006, 58)
+position = Vector2(1330, 52)
 
 [node name="CoinLayer" type="TileMapLayer" parent="."]
 position = Vector2(-5, 94)
@@ -4887,7 +4997,7 @@ offset_top = 4.0
 offset_right = 50.0
 offset_bottom = 30.0
 
-[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/CoinUI"]
+[node name="CoinSprite2D" type="Sprite2D" parent="UICanvasLayer/CoinUI"]
 position = Vector2(7, 12)
 scale = Vector2(2, 2)
 texture = ExtResource("14_lwso1")
@@ -4912,4 +5022,39 @@ text = "0"
 layout_mode = 2
 text = "/ 50"
 
+[node name="chaser_walk_enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(1555, 26)
+scale = Vector2(0.665, 0.665)
+script = ExtResource("21_j7fur")
+player = NodePath("../Player")
+contact_damage = 20
+
+[node name="Path2D" type="Path2D" parent="chaser_walk_enemy"]
+curve = SubResource("Curve2D_rnhg5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chaser_walk_enemy/Path2D"]
+position = Vector2(-121.80469, 15.037594)
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="chaser_walk_enemy/Path2D/PathFollow2D"]
+position = Vector2(0.00018356438, -13.533834)
+rotation = 0.008274418
+sprite_frames = SubResource("SpriteFrames_wdbmi")
+
+[node name="Area2D" type="Area2D" parent="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D"]
+position = Vector2(0.008274324, 0.9999658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D"]
+position = Vector2(-0.6246873, 13.569543)
+shape = SubResource("CapsuleShape2D_jf5t1")
+
+[node name="RayCast2D" type="RayCast2D" parent="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D"]
+position = Vector2(-0.88412523, 14.007795)
+target_position = Vector2(-135.84131, 0.65784454)
+
+[connection signal="give_contact_damage" from="IdleWalkEnemy" to="Player" method="_on_idle_walk_enemy_give_contact_damage"]
+[connection signal="area_shape_entered" from="IdleWalkEnemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D" to="IdleWalkEnemy" method="_on_body_entered"]
+[connection signal="body_entered" from="IdleWalkEnemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D" to="IdleWalkEnemy" method="_on_body_entered"]
 [connection signal="check_pickup" from="Player" to="." method="_on_player_check_pickup"]
+[connection signal="give_contact_damage" from="chaser_walk_enemy" to="Player" method="_on_idle_walk_enemy_give_contact_damage"]
+[connection signal="body_entered" from="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D" to="chaser_walk_enemy" method="_on_body_entered"]
