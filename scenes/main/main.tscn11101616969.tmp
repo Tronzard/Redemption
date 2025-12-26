@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://2p8a6bu81ff2"]
+
+[ext_resource type="Script" uid="uid://bkbj8my30h3ag" path="res://scenes/main/main.gd" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://c0lecrcny6u0u" path="res://scenes/main/level_handler.gd" id="2_6q06x"]
+[ext_resource type="PackedScene" uid="uid://dcvpehir33pvl" path="res://scenes/pause_menu/pause_menu.tscn" id="2_iuonh"]
+[ext_resource type="Script" uid="uid://bh0a23sr6r54u" path="res://scenes/main/menu_handler.gd" id="2_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://crf8p3x72q0ih" path="res://scenes/game_over/game_over.tscn" id="4_l3cfh"]
+
+[node name="main" type="Node"]
+process_mode = 3
+script = ExtResource("1_hyk8p")
+
+[node name="level_handler" type="Node" parent="."]
+process_mode = 1
+script = ExtResource("2_6q06x")
+
+[node name="menu_handler" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_k2fmo")
+
+[node name="PauseMenu" parent="menu_handler" instance=ExtResource("2_iuonh")]
+visible = false
+
+[node name="GameOver" parent="menu_handler" instance=ExtResource("4_l3cfh")]
+visible = false
+
+[node name="audio_handler" type="Node" parent="."]
+
+[connection signal="pause" from="menu_handler/PauseMenu" to="." method="_on_pause_menu_pause"]
+[connection signal="restart" from="menu_handler/PauseMenu" to="." method="_on_game_over_restart"]
+[connection signal="restart" from="menu_handler/GameOver" to="." method="_on_game_over_restart"]

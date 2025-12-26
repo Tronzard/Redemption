@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://cajeakagl5vwp"]
+[gd_scene load_steps=83 format=4 uid="uid://cajeakagl5vwp"]
 
 [ext_resource type="Texture2D" uid="uid://g7gpl8r7y3cg" path="res://assets/Free Pixel Art Forest/PNG/Background layers/Layer_0009_2.png" id="1_0ph2d"]
 [ext_resource type="Script" uid="uid://cq6124k8giqgr" path="res://scenes/levels/level2/level_2.gd" id="1_nyfdo"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://dy4tuys6u1pot" path="res://assets/Legacy-Fantasy - High Forest 2.3/Assets/Interior-01.png" id="16_ru4sy"]
 [ext_resource type="Script" uid="uid://cq7twjlpbpydo" path="res://scenes/enemy/IdleWalker/idle_walk_enemy.gd" id="18_rnhg5"]
 [ext_resource type="SpriteFrames" uid="uid://dogrlf1sh01lx" path="res://scenes/enemy/IdleWalker/snail.tres" id="20_dvwl2"]
+[ext_resource type="Texture2D" uid="uid://cpdkagbcd824f" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Snail/Dead-Sheet.png" id="20_vd870"]
+[ext_resource type="Texture2D" uid="uid://6714mug6fpkj" path="res://assets/Legacy-Fantasy - High Forest 2.3/Mob/Snail/all.png" id="21_320lf"]
 [ext_resource type="Script" uid="uid://ca1tj4x3e18lm" path="res://scenes/enemy/chaser_walk_enemy.gd" id="21_j7fur"]
 [ext_resource type="Texture2D" uid="uid://bpvxqb7jb8erk" path="res://assets/Characters/Forest_Monsters_FREE/Mushroom/Mushroom with VFX/Mushroom-Run.png" id="22_rnhg5"]
 
@@ -3626,15 +3628,214 @@ sources/2 = SubResource("TileSetAtlasSource_hjtdx")
 sources/3 = SubResource("TileSetAtlasSource_nyfdo")
 sources/4 = SubResource("TileSetAtlasSource_lwso1")
 
+[sub_resource type="Curve2D" id="Curve2D_j7fur"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -355, 10, 0, 0, 0, 0, 213, 10, 0, 0, 0, 0, -355, 10)
+}
+point_count = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qdru"]
+atlas = ExtResource("20_vd870")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_covqk"]
+atlas = ExtResource("20_vd870")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3e1k"]
+atlas = ExtResource("20_vd870")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6csh1"]
+atlas = ExtResource("20_vd870")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0rtc"]
+atlas = ExtResource("20_vd870")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4tau"]
+atlas = ExtResource("20_vd870")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hbhy"]
+atlas = ExtResource("20_vd870")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h4h5"]
+atlas = ExtResource("20_vd870")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jeaq"]
+atlas = ExtResource("21_320lf")
+region = Rect2(0, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrfic"]
+atlas = ExtResource("21_320lf")
+region = Rect2(192, 96, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rumcd"]
+atlas = ExtResource("21_320lf")
+region = Rect2(48, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tna2m"]
+atlas = ExtResource("21_320lf")
+region = Rect2(96, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvpxv"]
+atlas = ExtResource("21_320lf")
+region = Rect2(144, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twooa"]
+atlas = ExtResource("21_320lf")
+region = Rect2(192, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4j0a"]
+atlas = ExtResource("21_320lf")
+region = Rect2(240, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anvwg"]
+atlas = ExtResource("21_320lf")
+region = Rect2(288, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix43n"]
+atlas = ExtResource("21_320lf")
+region = Rect2(336, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubhme"]
+atlas = ExtResource("21_320lf")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsflt"]
+atlas = ExtResource("21_320lf")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ekgp"]
+atlas = ExtResource("21_320lf")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1n12"]
+atlas = ExtResource("21_320lf")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhnca"]
+atlas = ExtResource("21_320lf")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqy6h"]
+atlas = ExtResource("21_320lf")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62gv0"]
+atlas = ExtResource("21_320lf")
+region = Rect2(288, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30ybc"]
+atlas = ExtResource("21_320lf")
+region = Rect2(336, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wlh1d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qdru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_covqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3e1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6csh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0rtc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4tau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hbhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h4h5")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jeaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrfic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rumcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tna2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvpxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twooa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4j0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anvwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix43n")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubhme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsflt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ekgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1n12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhnca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62gv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30ybc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jf5t1"]
+radius = 13.57513
+height = 27.15026
+
 [sub_resource type="Curve2D" id="Curve2D_jf5t1"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -94, 11, 0, 0, 0, 0, 16, 11, 0, 0, 0, 0, -94, 11)
 }
 point_count = 3
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jf5t1"]
-radius = 13.57513
-height = 27.15026
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ru4sy"]
 texture = ExtResource("11_6u3ju")
@@ -4953,6 +5154,33 @@ position = Vector2(2468.325, 64.375)
 tile_map_data = PackedByteArray("AAAAAPz/BAAOAAsAAAAAAP3/BAAOAAsAAAAAAP7/BAAOAAsAAAAAAP//BAAOAAsAAAAAAAAABAAOAAsAAAAAAAEABAAOAAsAAAAAAAIABAAOAAsAAAAAAAMABAAOAAsAAAA=")
 tile_set = SubResource("TileSet_clahu")
 
+[node name="IdleWalkEnemy2" type="CharacterBody2D" parent="."]
+position = Vector2(2197, 253)
+script = ExtResource("18_rnhg5")
+speed = 0.02
+
+[node name="Path2D" type="Path2D" parent="IdleWalkEnemy2"]
+position = Vector2(46.000004, 0)
+curve = SubResource("Curve2D_j7fur")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="IdleWalkEnemy2/Path2D"]
+position = Vector2(-355, 10)
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="IdleWalkEnemy2/Path2D/PathFollow2D"]
+position = Vector2(1.9073486e-06, -1.9999957)
+scale = Vector2(0.6875, 0.6875)
+sprite_frames = SubResource("SpriteFrames_wlh1d")
+animation = &"walk"
+
+[node name="Area2D" type="Area2D" parent="IdleWalkEnemy2/Path2D/PathFollow2D/AnimatedSprite2D"]
+position = Vector2(7.6293945e-06, 4.363636)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IdleWalkEnemy2/Path2D/PathFollow2D/AnimatedSprite2D/Area2D"]
+position = Vector2(7.6293945e-06, -1.9073486e-06)
+rotation = 1.5991845
+shape = SubResource("CapsuleShape2D_jf5t1")
+
 [node name="IdleWalkEnemy" type="CharacterBody2D" parent="."]
 position = Vector2(299, 202)
 script = ExtResource("18_rnhg5")
@@ -4980,22 +5208,51 @@ rotation = 1.5991845
 shape = SubResource("CapsuleShape2D_jf5t1")
 
 [node name="Player" parent="." instance=ExtResource("16_gbd0r")]
-position = Vector2(1330, 52)
+position = Vector2(56, 37)
 
 [node name="CoinLayer" type="TileMapLayer" parent="."]
 position = Vector2(-5, 94)
 tile_map_data = PackedByteArray("AAAqAAoAAgAPABUAAAArAAoAAgAPABUAAAAsAAoAAgAPABUAAAAcAP//AgAPABUAAAAdAP//AgAPABUAAAAeAP//AgAPABUAAABBAAoAAgAPABUAAABCAAoAAgAPABUAAABDAAoAAgAPABUAAABEAP7/AgAPABUAAABFAP7/AgAPABUAAABkAAoAAgAPABUAAABlAAoAAgAPABUAAABmAAoAAgAPABUAAABpAAoAAgAPABUAAABqAAoAAgAPABUAAABrAAoAAgAPABUAAABsAAoAAgAPABUAAABxAAoAAgAPABUAAAByAAoAAgAPABUAAABzAAoAAgAPABUAAABtAAoAAgAPABUAAABuAAoAAgAPABUAAACZAAoAAgAPABUAAACYAAoAAgAPABUAAACXAAoAAgAPABUAAACWAAoAAgAPABUAAACUAAoAAgAPABUAAACVAAoAAgAPABUAAABeAPz/AgAPABUAAABfAPz/AgAPABUAAABgAPz/AgAPABUAAABRAP7/AgAPABUAAABSAP7/AgAPABUAAABTAP7/AgAPABUAAACQAP//AgAPABUAAACRAP//AgAPABUAAAByAAQAAgAPABUAAABzAAQAAgAPABUAAAB0AAQAAgAPABUAAAA6AAoAAgAPABUAAAA5AAoAAgAPABUAAAAHAAoAAgAPABUAAAAIAAoAAgAPABUAAAAJAAoAAgAPABUAAAA7AAoAAgAPABUAAABGAP7/AgAPABUAAAA=")
 tile_set = SubResource("TileSet_rnhg5")
 
+[node name="chaser_walk_enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(1555, 26)
+scale = Vector2(0.665, 0.665)
+script = ExtResource("21_j7fur")
+player = NodePath("../Player")
+
+[node name="Path2D" type="Path2D" parent="chaser_walk_enemy"]
+curve = SubResource("Curve2D_rnhg5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="chaser_walk_enemy/Path2D"]
+position = Vector2(-121.80469, 15.037594)
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="chaser_walk_enemy/Path2D/PathFollow2D"]
+position = Vector2(0.00018356438, -13.533834)
+rotation = 0.008274418
+sprite_frames = SubResource("SpriteFrames_wdbmi")
+
+[node name="Area2D" type="Area2D" parent="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D"]
+position = Vector2(0.008274324, 0.9999658)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D"]
+position = Vector2(-0.6246873, 13.569543)
+shape = SubResource("CapsuleShape2D_jf5t1")
+
+[node name="RayCast2D" type="RayCast2D" parent="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D"]
+position = Vector2(-0.88412523, 14.007795)
+target_position = Vector2(-135.84131, 0.65784454)
+
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CoinUI" type="Control" parent="UICanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 10.0
-offset_top = 4.0
-offset_right = 50.0
-offset_bottom = 30.0
+offset_left = 1057.0
+offset_top = 19.0
+offset_right = 1097.0
+offset_bottom = 45.0
 
 [node name="CoinSprite2D" type="Sprite2D" parent="UICanvasLayer/CoinUI"]
 position = Vector2(7, 12)
@@ -5022,39 +5279,13 @@ text = "0"
 layout_mode = 2
 text = "/ 50"
 
-[node name="chaser_walk_enemy" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(1555, 26)
-scale = Vector2(0.665, 0.665)
-script = ExtResource("21_j7fur")
-player = NodePath("../Player")
-contact_damage = 20
-
-[node name="Path2D" type="Path2D" parent="chaser_walk_enemy"]
-curve = SubResource("Curve2D_rnhg5")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="chaser_walk_enemy/Path2D"]
-position = Vector2(-121.80469, 15.037594)
-rotates = false
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="chaser_walk_enemy/Path2D/PathFollow2D"]
-position = Vector2(0.00018356438, -13.533834)
-rotation = 0.008274418
-sprite_frames = SubResource("SpriteFrames_wdbmi")
-
-[node name="Area2D" type="Area2D" parent="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D"]
-position = Vector2(0.008274324, 0.9999658)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D"]
-position = Vector2(-0.6246873, 13.569543)
-shape = SubResource("CapsuleShape2D_jf5t1")
-
-[node name="RayCast2D" type="RayCast2D" parent="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D"]
-position = Vector2(-0.88412523, 14.007795)
-target_position = Vector2(-135.84131, 0.65784454)
-
+[connection signal="give_contact_damage" from="IdleWalkEnemy2" to="Player" method="_on_idle_walk_enemy_give_contact_damage"]
+[connection signal="area_shape_entered" from="IdleWalkEnemy2/Path2D/PathFollow2D/AnimatedSprite2D/Area2D" to="IdleWalkEnemy2" method="_on_body_entered"]
+[connection signal="body_entered" from="IdleWalkEnemy2/Path2D/PathFollow2D/AnimatedSprite2D/Area2D" to="IdleWalkEnemy2" method="_on_body_entered"]
 [connection signal="give_contact_damage" from="IdleWalkEnemy" to="Player" method="_on_idle_walk_enemy_give_contact_damage"]
 [connection signal="area_shape_entered" from="IdleWalkEnemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D" to="IdleWalkEnemy" method="_on_body_entered"]
 [connection signal="body_entered" from="IdleWalkEnemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D" to="IdleWalkEnemy" method="_on_body_entered"]
 [connection signal="check_pickup" from="Player" to="." method="_on_player_check_pickup"]
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="give_contact_damage" from="chaser_walk_enemy" to="Player" method="_on_idle_walk_enemy_give_contact_damage"]
 [connection signal="body_entered" from="chaser_walk_enemy/Path2D/PathFollow2D/AnimatedSprite2D/Area2D" to="chaser_walk_enemy" method="_on_body_entered"]

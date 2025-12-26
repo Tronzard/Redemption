@@ -1,8 +1,9 @@
-[gd_scene load_steps=79 format=3 uid="uid://bqxkhnk5n1sgy"]
+[gd_scene load_steps=80 format=3 uid="uid://bqxkhnk5n1sgy"]
 
 [ext_resource type="Script" uid="uid://b0nqbb5goc0bw" path="res://player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://eb2v8v4ishy6" path="res://assets/adventurer-v1.5-Sheet.png" id="2_qhqgy"]
 [ext_resource type="Script" uid="uid://bl0aubwybtf5v" path="res://scenes/player_controller/camera_2d.gd" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://bqgruobt5rhk5" path="res://assets/Heart&ManaUi.png" id="4_dpfil"]
 [ext_resource type="Script" uid="uid://qdcc4eawjaem" path="res://scenes/player_controller/movement_controller.gd" id="4_e0aqs"]
 [ext_resource type="Script" uid="uid://dmdissi50e8i6" path="res://scenes/player_controller/combat_controller.gd" id="5_dpfil"]
 [ext_resource type="Script" uid="uid://ci2trpgssqfav" path="res://scenes/player_controller/animation_controller.gd" id="6_kht23"]
@@ -593,6 +594,60 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("3_qhqgy")
 deadzone_size = Vector2(100, 0)
+
+[node name="ui" type="CanvasLayer" parent="Camera2D"]
+
+[node name="HP" type="Node" parent="Camera2D/ui"]
+
+[node name="HP1" type="Sprite2D" parent="Camera2D/ui/HP"]
+modulate = Color(1, 1, 1, 0.9882353)
+position = Vector2(30, 28)
+scale = Vector2(3, 3)
+texture = ExtResource("4_dpfil")
+region_enabled = true
+region_rect = Rect2(20.383, 1.519, 12.662, 10.679)
+
+[node name="HP2" type="Sprite2D" parent="Camera2D/ui/HP"]
+modulate = Color(1, 1, 1, 0.9882353)
+position = Vector2(69, 28.000002)
+scale = Vector2(3, 3)
+texture = ExtResource("4_dpfil")
+region_enabled = true
+region_rect = Rect2(20.383, 1.519, 12.662, 10.679)
+
+[node name="HP3" type="Sprite2D" parent="Camera2D/ui/HP"]
+modulate = Color(1, 1, 1, 0.9882353)
+position = Vector2(107, 28.000002)
+scale = Vector2(3, 3)
+texture = ExtResource("4_dpfil")
+region_enabled = true
+region_rect = Rect2(32.403, 1.519, 12.662, 10.679)
+
+[node name="MP" type="Node" parent="Camera2D/ui"]
+
+[node name="MP1" type="Sprite2D" parent="Camera2D/ui/MP"]
+modulate = Color(1, 1, 1, 0.9882353)
+position = Vector2(29, 65)
+scale = Vector2(3, 3)
+texture = ExtResource("4_dpfil")
+region_enabled = true
+region_rect = Rect2(20.026327, 37.6279, 11.53701, 10.890938)
+
+[node name="MP2" type="Sprite2D" parent="Camera2D/ui/MP"]
+modulate = Color(1, 1, 1, 0.9882353)
+position = Vector2(68, 66)
+scale = Vector2(3, 3)
+texture = ExtResource("4_dpfil")
+region_enabled = true
+region_rect = Rect2(20.026327, 37.6279, 11.53701, 10.890938)
+
+[node name="MP3" type="Sprite2D" parent="Camera2D/ui/MP"]
+modulate = Color(1, 1, 1, 0.9882353)
+position = Vector2(107, 66)
+scale = Vector2(3, 3)
+texture = ExtResource("4_dpfil")
+region_enabled = true
+region_rect = Rect2(31.481, 37.628, 11.537, 10.891)
 
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("4_e0aqs")

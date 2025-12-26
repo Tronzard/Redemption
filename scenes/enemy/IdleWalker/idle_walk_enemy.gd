@@ -1,12 +1,11 @@
 extends BaseEnemy
 
-
 @onready var sprite: AnimatedSprite2D = $Path2D/PathFollow2D/AnimatedSprite2D
 @onready var path_follow: PathFollow2D = $Path2D/PathFollow2D
 
 
 var direction := 1  
-@export var speed := 0.5 
+@export var speed := 0.1
 
 
 func _ready() -> void:
@@ -14,7 +13,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	path_follow.progress_ratio += delta * 0.1
+	path_follow.progress_ratio += delta * speed
 
 
 func _physics_process(_delta: float) -> void:
@@ -23,7 +22,3 @@ func _physics_process(_delta: float) -> void:
 		
 	else:
 		sprite.flip_h = true
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	_on_body_entered(body)

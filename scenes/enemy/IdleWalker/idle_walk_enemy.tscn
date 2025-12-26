@@ -5,7 +5,7 @@
 
 [node name="IdleWalkEnemy" instance=ExtResource("1_musuk")]
 script = ExtResource("2_0qdmu")
-speed = 0.5
+speed = 0.1
 
 [node name="PathFollow2D" parent="Path2D" index="0"]
 position = Vector2(0, 0)

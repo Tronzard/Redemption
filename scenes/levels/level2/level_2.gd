@@ -1,5 +1,8 @@
 extends Node2D
 
+
+signal game_over()
+
 @export var coin_layer_path: NodePath
 @onready var coin_layer: TileMapLayer = get_node(coin_layer_path)
 @onready var collected: Label = $UICanvasLayer/CoinUI/CoinContainer/Collected
@@ -10,6 +13,7 @@ extends Node2D
 
 var total_coin_count: int
 var collected_coins: int = 0
+var level: int = 2
 
 
 func _ready() -> void:
@@ -63,3 +67,10 @@ func unlock_gate() -> void:
 	
 	camera.follow_player = true
 	player.set_process(true)
+
+
+func _on_player_game_over() -> void:
+	get_parent().game_over()
+
+func get_level() -> int:
+	return level

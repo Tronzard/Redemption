@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="My Redemption"
-run/main_scene="res://scenes/levels/level1/bg.tscn"
+run/main_scene="uid://2p8a6bu81ff2"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -61,6 +61,7 @@ ui_jump={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/vram_compression/import_etc2_astc=true
 textures/default_filters/use_nearest_mipmap_filter=true
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true

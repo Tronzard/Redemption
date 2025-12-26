@@ -1,6 +1,5 @@
 extends BaseEnemy
 
-
 @onready var sprite: AnimatedSprite2D = $Path2D/PathFollow2D/AnimatedSprite2D
 @onready var path_follow: PathFollow2D = $Path2D/PathFollow2D
 @onready var ray_cast: RayCast2D = $Path2D/PathFollow2D/AnimatedSprite2D/RayCast2D
